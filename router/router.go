@@ -1,10 +1,17 @@
 package router
 
 import "github.com/gin-gonic/gin"
-import "../pkg/controller/payment"
+//import "github.com/SaasMarket/pkg/controller/payment"
+import "SaasMarket/pkg/controller/payment"
 
 
 type Router struct{
+	Threads int
+	Router	*gin.Engine
+
+}
+
+type router struct{
 	Threads int
 	Router	*gin.Engine
 
@@ -15,17 +22,17 @@ type Router struct{
 //
 //}
 
-func setupRouter() *gin.Engine{
+func SetupRouter() *gin.Engine{
 	r := gin.Default()
 
 	r.GET("/test", )
 
 	paymentGroup := r.Group("/", )
 
-	paymentController := payment
+	paymentController := payment.Payment{1}
 
 	{
-		paymentGroup.POST("/payment",)
+		paymentGroup.POST("/payment", paymentController.GetPaymentInfo)
 
 	}
 
