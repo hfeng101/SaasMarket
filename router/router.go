@@ -2,8 +2,7 @@ package router
 
 import "github.com/gin-gonic/gin"
 //import "github.com/SaasMarket/pkg/controller/payment"
-import "SaasMarket/pkg/controller/payment"
-
+import "../pkg/controller/payment"
 
 type Router struct{
 	Threads int
