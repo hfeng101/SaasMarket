@@ -16,12 +16,12 @@ limitations under the License.
 package cmd
 
 import (
+  "SaasMarket/router"
   "fmt"
-  "github.com/gin-gonic/gin"
-  "os"
   "github.com/spf13/cobra"
+  "os"
 
-  homedir "github.com/mitchellh/go-homedir"
+  "github.com/mitchellh/go-homedir"
   "github.com/spf13/viper"
 
   //"../pkg/"
@@ -45,6 +45,7 @@ to quickly create a Cobra application.`,
   // Uncomment the following line if your bare application
   // has an action associated with it:
   //	Run: func(cmd *cobra.Command, args []string) { },
+  Run: runSaasMarket,
 }
 
 func runSaasMarket(cmd *cobra.Command, args []string){
@@ -54,10 +55,11 @@ func runSaasMarket(cmd *cobra.Command, args []string){
 
   //设置Daemon上下文基础环境
   //r := router.SetupRouter()
-  r := gin.Default()
+  //r := gin.Default()
 
   //运行服务
-  r.Run("127.0.0.1:8080")
+  //r.Run("127.0.0.1:8080")
+  router.SetupRouter()
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
